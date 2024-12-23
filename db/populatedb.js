@@ -14,7 +14,7 @@ create table if not exists messages(
     message_id integer primary key generated always as identity,
     message varchar(255),
     date varchar(255),
-    user_id integer,
+    user_id varchar(255),
     constraint fk_member foreign key (user_id)
     references members(user_id)
 );

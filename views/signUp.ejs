@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Page</title>
+  </head>
+  <body>
+    <h1>Sign Up - New User</h1>
+    <form action="/signUp" method="post">
+      <label for="userId">Enter User Id(unique): </label>
+      <input
+        type="text"
+        id="userId"
+        name="userId"
+        placeholder="User Id"
+        required
+      />
+      <label for="fullName">Enter Full Name: </label>
+      <input
+        type="text"
+        id="fullName"
+        name="fullName"
+        placeholder="Full Name"
+        required
+      />
+      <label for="password">Enter Password: </label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Password"
+        required
+      />
+      <label for="confirmPassword">Confirm Password: </label>
+      <input
+        type="password"
+        id="confirmPassword"
+        name="confirmPassword"
+        placeholder="ReEnter Password"
+        required
+      />
+      <label for="status">Select Status: </label>
+      <select name="status" id="status" required>
+        <option value="user">User</option>
+        <option value="member">Member</option>
+        <option value="admin">Admin</option>
+      </select>
+      <label for="membershipPassword"
+        >Enter password required to become member / admin</label
+      >
+      <input
+        type="text"
+        id="membershipPassword"
+        name="membershipPassword"
+        placeholder="Optional"
+      />
+    </form>
+  </body>
+</html>
