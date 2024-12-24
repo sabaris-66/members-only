@@ -3,9 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title>Club House</title>
   </head>
   <body>
     <h1>Club House</h1>
+
+    <% if(locals.user) {%>
+    <div>User's Full Name: <%= user.fullname %></div>
+    <br />
+    <a href="/logout">Log Out</a>
+    <br />
+    <a href="/create">Add New Message</a>
+    <br />
+    <% } else{ %>
+    <br />
+    <a href="/signUp">Sign Up</a>
+    <br />
+    <a href="/logIn">Log In</a>
+    <br />
+    <% } %>
+    <hr />
+    <% if(locals.messages){ %> <% messages.forEach(message => { %>
+    <div>Message No: <%= message.messageid %></div>
+    <div>Message: <%= message.message %></div>
+    <div>Date: <%= message.date %></div>
+    <% if(locals.user && (user.status == 'user' || user.status == 'admin')){ %>
+    <div>Message Created by: <%= user.fullname %></div>
+    <br />
+    <% } %> <% if(locals.user && user.status == 'admin'){ %>
+    <form action="/delete?messageid=<%= message.messageid %>" method="post">
+      <button type="submit">Delete</button>
+    </form>
+    <br /><br /><br />
+    <% } %>
+    <hr />
+    <hr />
+    <% }) %> <% } %>
   </body>
 </html>
