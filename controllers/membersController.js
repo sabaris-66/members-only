@@ -1,4 +1,5 @@
 const bcrypt = require("bcryptjs");
+require("dotenv").config();
 const { body, validationResult } = require("express-validator");
 const db = require("../db/queries");
 const passport = require("passport");
@@ -54,13 +55,13 @@ const validateUser = [
         return true;
       }
       if (req.body.status === "member") {
-        if (value !== "SaBa'sMinion") {
+        if (value !== process.env.MEMBER_PASSWORD) {
           throw new Error("Wrong Password for membership status");
         }
         return true;
       }
       if (req.body.status === "admin") {
-        if (value !== "SaBa'sEpicShadows") {
+        if (value !== process.env.ADMIN_PASSWORD) {
           throw new Error("Wrong password for admin membership");
         }
         return true;

@@ -28,7 +28,8 @@
     <div>Message No: <%= message.messageid %></div>
     <div>Message: <%= message.message %></div>
     <div>Date: <%= message.date %></div>
-    <% if(locals.user && (user.status == 'user' || user.status == 'admin')){ %>
+    <% if(locals.user && (user.status == 'member' || user.status == 'admin')){
+    %>
     <div>Message Created by: <%= user.fullname %></div>
     <br />
     <% } %> <% if(locals.user && user.status == 'admin'){ %>
